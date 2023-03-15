@@ -42,23 +42,38 @@
                                             <th>Name</th>
                                             <th>Slug</th>
                                             <th>Post Count</th>
-                                            <th>Progress</th>
+
                                             <th style="width: 40px">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Update software</td>
-                                            <td>Update software</td>
-                                            <td>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-danger">55%</span></td>
-                                        </tr>
+                                        @foreach ($categories as $category)
+                                            <tr>
+                                                <td>{{ $category->id }}</td>
+                                                <td>{{ $category->name }}</td>
+                                                <td>{{ $category->slug }}</td>
+                                                <td>{{ $category->id }}</td>
 
+                                                <td class='d-flex'>
+                                                    <a href="{{ route('edit', [$category->id]) }}"
+                                                        class="btn btn-sm
+                                                        btn-primary mr-1"><i
+                                                            class="fas  fa-edit"></i></a>
+                                                    <a href="{{ route('delete', [$category->id]) }}"
+                                                        class="btn btn-sm btn-danger mr-1"><i class="fas fa-trash"></i></a>
+                                                    {{-- <a href="{{ route('show', [$category->id]) }}"
+                                                        class="btn btn-sm btn-success mr-1"><i class="fas fa-eye"></i></a> --}}
+                                                </td>
+
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="progress-bar progress-bar-danger" style="width: 55%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge bg-danger">55%</span></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

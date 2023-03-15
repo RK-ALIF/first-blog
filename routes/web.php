@@ -19,3 +19,8 @@ Route::get('/admin/dashboard', [AdminController::class, 'adminPage'])->name('adm
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::get('/create', [CategoryController::class, 'create'])->name('create');
 Route::post('/create', [CategoryController::class, 'store'])->name('store');
+Route::get('/show', [CategoryController::class, 'show'])->name('show');
+
+Route::get('/delete/{id}', [CategoryController::class, 'destroy'])->name('delete');
+Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+Route::post('/edit', [CategoryController::class, 'update'])->name('update');
